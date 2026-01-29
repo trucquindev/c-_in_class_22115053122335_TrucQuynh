@@ -1,123 +1,137 @@
 ﻿using System;
 using System.Globalization;
 
-Console.WriteLine("=== CHƯƠNG TRÌNH XỬ LÝ CHUỖI VÀ MẢNG ===");
-Console.WriteLine("PHẦN A - CHUỖI");
-Console.WriteLine("1. Chuẩn hoá họ tên");
-Console.WriteLine("2. Đếm số từ");
-Console.WriteLine("3. Kiểm tra chuỗi đối xứng");
-Console.WriteLine("PHẦN B - MẢNG");
-Console.WriteLine("4. Tính tổng mảng số nguyên");
-Console.WriteLine("5. Tìm giá trị lớn nhất");
-Console.WriteLine("6. Đếm số phần tử chẵn");
-Console.WriteLine("PHẦN C - CHUỖI + MẢNG");
-Console.WriteLine("7. Tách họ tên thành mảng");
-Console.WriteLine("8. Tìm từ dài nhất");
-Console.WriteLine("9. Đếm chuỗi khác null trong mảng");
-Console.Write("Chọn bài (1-9): ");
-
-string choice = Console.ReadLine();
-
-switch (choice)
+while (true)
 {
-    case "1":
-        Console.Write("Nhập họ tên: ");
-        string input1 = Console.ReadLine();
-        string result1 = NormalizeFullName(input1);
-        if (!string.IsNullOrWhiteSpace(result1))
-        {
-            Console.WriteLine("Họ tên chuẩn hoá: " + result1);
-        }
-        break;
+    // Console.WriteLine("1. Chuẩn hoá họ tên");
+    // Console.WriteLine("2. Đếm số từ");
+    // Console.WriteLine("3. Kiểm tra chuỗi đối xứng");
+    Console.WriteLine("4. Tính tổng mảng số nguyên");
+    Console.WriteLine("5. Tìm giá trị lớn nhất");
+    Console.WriteLine("6. Đếm số phần tử chẵn");
+    Console.WriteLine("7. Tách họ tên thành mảng");
+    Console.WriteLine("8. Tìm từ dài nhất");
+    Console.WriteLine("9. Đếm chuỗi khác null trong mảng");
+    Console.WriteLine("0. Thoát");
+    Console.Write("Chọn bài (0-9): ");
 
-    case "2":
-        Console.Write("Nhập chuỗi: ");
-        string input2 = Console.ReadLine();
-        int count = CountWords(input2);
-        Console.WriteLine("Số từ trong chuỗi: " + count);
-        break;
+    string choice = Console.ReadLine();
 
-    case "3":
-        Console.Write("Nhập chuỗi: ");
-        string input3 = Console.ReadLine();
-        bool isPalindrome = IsPalindrome(input3);
-        Console.WriteLine("Chuỗi đối xứng: " + (isPalindrome ? "Có" : "Không"));
-        break;
+    switch (choice)
+    {
+        case "1":
+            Console.Write("Nhập họ tên: ");
+            string input1 = Console.ReadLine();
+            string result1 = NormalizeFullName(input1);
+            if (!string.IsNullOrWhiteSpace(result1))
+            {
+                Console.WriteLine("Họ tên chuẩn hoá: " + result1);
+            }
+            break;
 
-    case "4":
-        Console.Write("Nhập số phần tử (n): ");
-        int n = int.Parse(Console.ReadLine());
-        int[] arr4 = new int[n];
-        for (int i = 0; i < n; i++)
-        {
-            Console.Write($"Phần tử [{i}]: ");
-            arr4[i] = int.Parse(Console.ReadLine());
-        }
-        int sum = SumArray(arr4);
-        Console.WriteLine("Tổng mảng: " + sum);
-        break;
+        case "2":
+            Console.Write("Nhập chuỗi: ");
+            string input2 = Console.ReadLine();
+            int count = CountWords(input2);
+            Console.WriteLine("Số từ trong chuỗi: " + count);
+            break;
 
-    case "5":
-        Console.Write("Nhập số phần tử (n): ");
-        int n5 = int.Parse(Console.ReadLine());
-        int[] arr5 = new int[n5];
-        for (int i = 0; i < n5; i++)
-        {
-            Console.Write($"Phần tử [{i}]: ");
-            arr5[i] = int.Parse(Console.ReadLine());
-        }
-        int max = FindMax(arr5);
-        Console.WriteLine("Giá trị lớn nhất: " + max);
-        break;
+        case "3":
+            Console.Write("Nhập chuỗi: ");
+            string input3 = Console.ReadLine();
+            bool isPalindrome = IsPalindrome(input3);
+            Console.WriteLine("Chuỗi đối xứng: " + (isPalindrome ? "Có" : "Không"));
+            break;
 
-    case "6":
-        Console.Write("Nhập số phần tử (n): ");
-        int n6 = int.Parse(Console.ReadLine());
-        int[] arr6 = new int[n6];
-        for (int i = 0; i < n6; i++)
-        {
-            Console.Write($"Phần tử [{i}]: ");
-            arr6[i] = int.Parse(Console.ReadLine());
-        }
-        int evenCount = CountEven(arr6);
-        Console.WriteLine("Số phần tử chẵn: " + evenCount);
-        break;
+        case "4":
+            Console.Write("Nhập số phần tử (n): ");
+            int n = int.Parse(Console.ReadLine());
+            int[] arr4 = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Phần tử [{i}]: ");
+                arr4[i] = int.Parse(Console.ReadLine());
+            }
+            int sum = SumArray(arr4);
+            Console.WriteLine("Tổng mảng: " + sum);
+            break;
 
-    case "7":
-        Console.Write("Nhập họ tên: ");
-        string input7 = Console.ReadLine();
-        SplitFullName(input7);
-        break;
+        case "5":
+            Console.Write("Nhập số phần tử (n): ");
+            int n5 = int.Parse(Console.ReadLine());
+            int[] arr5 = new int[n5];
+            int max = int.MinValue;
+            for (int i = 0; i < n5; i++)
+            {
+                Console.Write($"Phần tử [{i}]: ");
+                arr5[i] = int.Parse(Console.ReadLine());
+            }
+            for (int i = 0; i < n5; i++)
+            {
+                if (arr5[i] > max)
+                {
+                    max = arr5[i];
+                }
+            }
+            Console.WriteLine("Giá trị lớn nhất: " + max);
+            break;
+        case "6":
+            Console.Write("Nhập số phần tử (n): ");
+            int n6 = int.Parse(Console.ReadLine());
+            int[] arr6 = new int[n6];
+            for (int i = 0; i < n6; i++)
+            {
+                Console.Write($"Phần tử [{i}]: ");
+                arr6[i] = int.Parse(Console.ReadLine());
+            }
+            int evenCount = CountEven(arr6);
+            Console.WriteLine("Số phần tử chẵn: " + evenCount);
+            break;
 
-    case "8":
-        Console.Write("Nhập câu: ");
-        string input8 = Console.ReadLine();
-        string longestWord = FindLongestWord(input8);
-        if (!string.IsNullOrWhiteSpace(longestWord))
-        {
-            Console.WriteLine("Từ dài nhất: " + longestWord);
-        }
-        break;
+        case "7":
+            Console.Write("Nhập họ tên: ");
+            string input7 = Console.ReadLine();
+            SplitFullName(input7);
+            break;
 
-    case "9":
-        Console.WriteLine("Nhập chuỗi (gõ 'done' để kết thúc):");
-        string[] arr9 = new string[10];
-        int index = 0;
-        while (true)
-        {
-            Console.Write($"Chuỗi [{index}]: ");
-            string input = Console.ReadLine();
-            if (input.ToLower() == "done") break;
-            arr9[index] = input;
-            index++;
-        }
-        int nonNullCount = CountNonNullStrings(arr9);
-        Console.WriteLine("Số chuỗi khác null và rỗng: " + nonNullCount);
-        break;
+        case "8":
+            Console.Write("Nhập câu: ");
+            string input8 = Console.ReadLine();
+            string longestWord = FindLongestWord(input8);
+            if (!string.IsNullOrWhiteSpace(longestWord))
+            {
+                Console.WriteLine("Từ dài nhất: " + longestWord);
+            }
+            break;
 
-    default:
-        Console.WriteLine("Lựa chọn không hợp lệ!");
-        break;
+        case "9":
+            Console.WriteLine("Nhập chuỗi (gõ 'done' để kết thúc):");
+            string[] arr9 = new string[10];
+            int index = 0;
+            while (true)
+            {
+                Console.Write($"Chuỗi [{index}]: ");
+                string input = Console.ReadLine();
+                if (input.ToLower() == "done") break;
+                arr9[index] = input;
+                index++;
+            }
+            int nonNullCount = CountNonNullStrings(arr9);
+            Console.WriteLine("Số chuỗi khác null và rỗng: " + nonNullCount);
+            break;
+
+
+        case "0":
+            Console.WriteLine("Thoát chương trình!");
+            return;
+
+        default:
+            Console.WriteLine("Lựa chọn không hợp lệ!");
+            break;
+    }
+
+    Console.WriteLine("Nhấn Enter để tiếp tục...");
+    Console.ReadLine();
 }
 
 static string NormalizeFullName(string input)
