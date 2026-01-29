@@ -12,3 +12,4 @@
 /Users/nguyentrucquynh/Desktop/WorkSpaces/C#/obj/Debug/net10.0/C#.pdb
 /Users/nguyentrucquynh/Desktop/WorkSpaces/C#/obj/Debug/net10.0/C#.genruntimeconfig.cache
 /Users/nguyentrucquynh/Desktop/WorkSpaces/C#/obj/Debug/net10.0/ref/C#.dll
+/Users/nguyentrucquynh/Desktop/WorkSpaces/C#/obj/Debug/net10.0/C#.sourcelink.json
